@@ -1,0 +1,286 @@
+@import "tailwindcss";
+
+@layer base {
+  html, body, #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  /* Sleek modern scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.35);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(16, 185, 129, 0.6);
+  }
+
+  /* Universal removal of number input spinners / arrows */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield !important;
+    appearance: textfield !important;
+  }
+}
+
+/* Universal removal of number input spinners / up-down arrows */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield !important;
+  appearance: textfield !important;
+}
+
+/* Page transitions */
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: slideUpFade 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* High-Precision Printing Styles - Pure 100% Black & White Minimalist */
+@media print {
+  @page {
+    margin: 8mm 8mm;
+    size: auto;
+  }
+
+  *, *::before, *::after {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    border-color: #000000 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-filter: grayscale(100%) !important;
+    filter: grayscale(100%) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body, #root, .main-layout, main {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 100% !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  /* Universal Hide for Web UI Elements */
+  .no-print,
+  .no-print *,
+  nav,
+  aside,
+  header,
+  .sidebar,
+  button,
+  input[type="search"],
+  .pagination {
+    display: none !important;
+  }
+
+  /* Universal Visible Print Areas */
+  .print-area, .print-area *,
+  .print-receipt, .print-receipt *,
+  .print-thermal, .print-thermal *,
+  .print-a4, .print-a4 *,
+  .print-po, .print-po *,
+  .print-report, .print-report *,
+  .print-ledger, .print-ledger * {
+    visibility: visible !important;
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print-area, .print-report, .print-ledger {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  /* Remove outer enclosing container boxes, cards, and overflow wrappers in all print layouts */
+  div:has(table),
+  div:has(> .overflow-x-auto),
+  div:has(> table),
+  .overflow-x-auto,
+  .overflow-hidden,
+  .print-area > div,
+  .print-report > div,
+  .print-ledger > div,
+  .print-a4 > div,
+  .print-po > div,
+  div.border-slate-100, div.border-slate-200, div.border-slate-300, div.border-slate-400,
+  div.border-gray-100, div.border-gray-200, div.border-gray-300, div.border-gray-400 {
+    border: none !important;
+    border-width: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Universal Boxy Black & White Table Format - Single Clean Ledger Table */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #000000 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  thead tr {
+    border-bottom: 1.5px solid #000000 !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+  }
+
+  th {
+    border: 1px solid #000000 !important;
+    border-color: #000000 !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    font-size: 10px !important;
+    padding: 4px 6px !important;
+    letter-spacing: 0.3px !important;
+    text-align: left !important;
+  }
+
+  th.text-right, td.text-right {
+    text-align: right !important;
+  }
+
+  th.text-center, td.text-center {
+    text-align: center !important;
+  }
+
+  tbody tr {
+    page-break-inside: avoid !important;
+    border-bottom: 1px solid #000000 !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+  }
+
+  td {
+    border: 1px solid #000000 !important;
+    border-color: #000000 !important;
+    padding: 4px 6px !important;
+    font-size: 10px !important;
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+  }
+
+  /* Convert all floating cards, soft borders and rounded pills into simple boxy rectangular styles */
+  .rounded-xl, .rounded-2xl, .rounded-3xl, .rounded-full, .rounded-lg, .rounded-md {
+    border-radius: 0 !important;
+  }
+
+  .shadow-xs, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl, .shadow-2xs {
+    box-shadow: none !important;
+  }
+
+  .border-b, .border-b-2 {
+    border-bottom-color: #000000 !important;
+  }
+
+  /* Badges & Pills in Print: Simple Boxy Ledger Text without color */
+  span.badge, [class*="rounded-full"], .badge {
+    border-radius: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    font-size: 10px !important;
+  }
+
+  /* Thermal Receipt Print Area (80mm POS Roll) */
+  .print-receipt, .print-thermal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm !important;
+    max-width: 80mm !important;
+    margin: 0 !important;
+    padding: 2mm 3mm !important;
+    background: #ffffff !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 11px !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .print-receipt *, .print-thermal * {
+    color: #000000 !important;
+  }
+
+  /* Full Page A4 Sales Invoice & Purchase Order Print Area */
+  .print-a4, .print-po {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    max-width: 210mm !important;
+    margin: 0 auto !important;
+    padding: 4mm 6mm !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}

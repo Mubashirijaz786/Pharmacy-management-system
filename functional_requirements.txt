@@ -1,0 +1,116 @@
+PHARMACY MANAGEMENT SYSTEM
+Functional Requirements Document
+2.1 Sales Management (POS Billing)
+Generate fast POS invoices
+Support barcode scanning for medicines
+Allow manual product search
+Add/remove items in cart
+Apply:
+Discounts (item-level & bill-level)
+Taxes (GST/VAT if applicable)
+Handle:
+Cash payments
+Card payments (optional integration)
+Credit sales (customer ledger)
+Generate printable invoice
+Store all sales history
+Support return & refund system
+2.2 Medicine/Product Management
+Add/Edit/Delete medicines
+Medicine attributes:
+Name
+Generic name
+Brand
+Category (tablet, syrup, injection)
+Strength (e.g., 500mg)
+Price (cost & selling price)
+Barcode generation & mapping
+Medicine images (optional)
+Drug type classification
+2.3 Inventory / Stock Management
+Real-time stock updates after every sale
+Batch-wise stock tracking
+Expiry date tracking per batch
+Stock adjustment (damage, loss, manual correction)
+Stock transfer between branches
+Low stock alerts
+Reorder level setup per product
+2.4 Supplier Management
+Store supplier details:
+Name
+Contact
+Company
+Address
+Track supplier purchase history
+Maintain supplier balance (credit system)
+Generate supplier ledger reports
+2.5 Customer Management
+Customer registration
+Purchase history tracking
+Credit account system (if medicine is sold on loan)
+Customer contact details
+Loyalty/discount system (optional)
+2.6 Prescription Handling
+Prescription upload (image or PDF)
+Link prescription with sale
+Pharmacist verification module
+Doctor details (optional)
+Prescription history per customer
+2.7 Pricing, Discount & Tax System
+Flexible pricing rules:
+Retail price
+Wholesale price
+Discount types:
+Percentage discount
+Fixed discount
+Tax configuration per product or invoice
+Automatic calculation of totals
+2.8 Barcode Scanning Support
+Support USB barcode scanner
+Map barcode → product ID
+Auto-add item to cart
+Prevent duplicate scanning errors
+2.9 Purchase Management (Procurement)
+Create purchase orders
+Receive stock from suppliers
+Update inventory automatically on receiving goods
+Track purchase invoices
+Partial stock receiving support
+Purchase return system
+2.10 Reports Module
+Sales Reports:
+Daily / weekly / monthly sales
+Total revenue
+Profit & loss report
+Inventory Reports:
+Stock in hand
+Expiry report
+Low stock report
+Finance Reports:
+Customer credit report
+Supplier payment report
+Operational Reports:
+Top selling medicines
+Fast-moving vs slow-moving products
+2.11 User Roles & Permissions
+System must support role-based access:
+Roles:
+Admin
+Cashier
+Pharmacist
+Manager
+Permissions:
+Admin: full access
+Cashier: billing only
+Pharmacist: prescription + medicine validation
+Manager: reports + stock control
+2.12 Multi-Branch Support (Optional Advanced)
+Multiple store locations
+Centralized database
+Stock transfer between branches
+Branch-wise reporting
+2.13 Alerts & Notifications
+Low stock warning
+Expiry date alerts (30/60/90 days)
+Out-of-stock alerts
+Pending payments alerts
